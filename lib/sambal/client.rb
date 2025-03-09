@@ -105,7 +105,7 @@ module Sambal
 
     def cd(dir)
       response = ask("cd \"#{dir}\"")
-      if response.split("\r\n").join('') =~ /NT_STATUS_OBJECT_(NAME|PATH)_NOT_FOUND/
+      if response.split("\r\n").join('') =~ /NT_STATUS_/
         Response.new(response, false)
       else
         Response.new(response, true)
